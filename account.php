@@ -1,17 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header('Location: users.php'); // Redirect to login if not logged in
+    header('Location: users.php'); 
     exit();
 }
 
-// Include database connection file
 include 'config.php';
 
-// Fetch user data
 $username = $_SESSION['username'];
 
-// Fetch user email from the Users table
 $sql_user = "SELECT email, full_name, phone, address, email_notifications, sms_notifications FROM users WHERE username = ?";
 $stmt_user = $conn->prepare($sql_user);
 if ($stmt_user) {
@@ -19,7 +16,6 @@ if ($stmt_user) {
     $stmt_user->execute();
     $result_user = $stmt_user->get_result();
 
-    // Check if a user was found
     if ($result_user->num_rows > 0) {
         $user_data = $result_user->fetch_assoc();
         $user_email = $user_data['email'];
@@ -32,7 +28,6 @@ if ($stmt_user) {
     exit();
 }
 
-// Fetch completed services (Service History)
 $sql_history = "SELECT service_type, appointment_date, appointment_time FROM appointments WHERE email = ? AND appointment_date < CURDATE()";
 $stmt_history = $conn->prepare($sql_history);
 if ($stmt_history) {
@@ -45,7 +40,7 @@ if ($stmt_history) {
     exit();
 }
 
-// Fetch ongoing or pending services (Repair Status)
+
 $sql_status = "SELECT service_type, appointment_date, appointment_time FROM appointments WHERE email = ? AND appointment_date >= CURDATE()";
 $stmt_status = $conn->prepare($sql_status);
 if ($stmt_status) {
@@ -58,7 +53,6 @@ if ($stmt_status) {
     exit();
 }
 
-// Calculate loyalty progress based on completed services
 $sql_loyalty = "SELECT COUNT(id) AS service_count FROM appointments WHERE email = ? AND appointment_date < CURDATE()";
 $stmt_loyalty = $conn->prepare($sql_loyalty);
 if ($stmt_loyalty) {
@@ -68,7 +62,6 @@ if ($stmt_loyalty) {
     $loyalty_data = $result_loyalty->fetch_assoc();
     $completed_service_count = $loyalty_data['service_count'];
 
-    // Loyalty logic (5 completed services = 5% discount)
     $next_discount = ($completed_service_count >= 5) ? 'You earned another 5% discount!' : 'Complete ' . (5 - $completed_service_count) . ' more services to earn a 5% discount!';
 } else {
     echo "Error: Could not prepare the SQL statement for loyalty program.";
@@ -142,7 +135,6 @@ if ($stmt_loyalty) {
 
 <div class="container mt-5">
     <div class="row">
-        <!-- Sidebar -->
         <div class="col-md-3">
             <div class="sidebar">
                 <h4>Account Settings</h4>
@@ -176,7 +168,6 @@ if ($stmt_loyalty) {
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="col-md-9">
             <!-- General Settings Section -->
             <div id="general-settings" class="general-settings" style="display:none;">
@@ -202,7 +193,6 @@ if ($stmt_loyalty) {
                 </form>
             </div>
 
-            <!-- Change Password Section -->
             <div id="change-password" class="change-password" style="display:none;">
                 <h3>Change Password</h3>
                 <form action="update-password.php" method="POST">
@@ -218,7 +208,6 @@ if ($stmt_loyalty) {
                 </form>
             </div>
 
-            <!-- Service History Section -->
             <div id="service-history" class="service-history" style="display:none;">
                 <h3>Service History</h3>
                 <?php if (count($completed_services) > 0): ?>
@@ -245,7 +234,6 @@ if ($stmt_loyalty) {
                 <?php endif; ?>
             </div>
 
-            <!-- Repair Status Section -->
             <div id="repair-status" class="repair-status" style="display:none;">
                 <h3>Ongoing Repairs</h3>
                 <?php if (count($ongoing_services) > 0): ?>
@@ -272,7 +260,6 @@ if ($stmt_loyalty) {
                 <?php endif; ?>
             </div>
 
-            <!-- Loyalty Status Section -->
             <div id="loyalty-status" class="loyalty-status" style="display:none;">
                 <h3>Loyalty Program</h3>
                 <p><?php echo htmlspecialchars($next_discount); ?></p>
