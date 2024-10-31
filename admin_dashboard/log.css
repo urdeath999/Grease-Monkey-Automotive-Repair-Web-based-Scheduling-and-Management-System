@@ -1,0 +1,162 @@
+body {
+    font-family: 'Montserrat', sans-serif; /* Set font to Montserrat */
+    background-color: #fff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.logo-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 20px; 
+}
+
+.logo-container img {
+    width: 50px; 
+    margin-right: 10px; 
+}
+
+.logo-container h2 {
+    font-size: 32px; 
+    margin: 0; 
+    font-weight: bold;
+}
+
+.logo-container h2 span {
+    color: #FFD700; 
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: bold; /* Bold for logo text */
+    display: flex; /* Use flexbox for logo and text alignment */
+    align-items: center; /* Center align items */
+}
+
+.logo img {
+    width: 40px; /* Adjust the logo size */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between logo and text */
+}
+
+.form-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 500; /* Medium weight for form titles */
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group input {
+    width: calc(100% - 20px);  
+    padding: 10px;
+    padding-left: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s;
+    color: #000;  
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: #000;  
+    outline: none;
+}
+
+.input-group label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #666;
+    background-color: #f9f9f9;
+    padding: 0 5px;
+}
+
+.input-group .fas {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.input-group .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s;
+}
+
+.input-group .toggle-password.active {
+    color: #333; 
+}
+
+input.btn {
+    width: 100%;
+    background-color: #FFD700;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input.btn:hover {
+    background-color: #ffcc00;
+}
+
+.error {
+    font-size: 12px;
+    color: red;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+
+input.valid {
+    border-color: green;
+}
+
+input.invalid {
+    border-color: red;
+}
+
+p.recover {
+    text-align: right;
+}
+
+p {
+    font-size: 16px;
+}
+
+button {
+    background: none;
+    border: none;
+    color: #FFD700;
+    cursor: pointer;
+    font-size: 16px;
+}
