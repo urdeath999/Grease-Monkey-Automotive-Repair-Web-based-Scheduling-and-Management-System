@@ -1,0 +1,329 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.account-settings {
+    display: flex;
+    flex-wrap: wrap; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff; 
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.account-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    justify-content: space-between;
+    gap: 20px; 
+    flex-wrap: wrap; 
+}
+
+.sidebar {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+
+}
+
+.sidebar h4 {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.sidebar .nav-link {
+    color: #333333;
+    font-size: 1.2rem;
+    padding: 12px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: #ffd700;
+    color: #333333;
+}
+
+.sidebar .nav-item {
+    margin-bottom: 10px;
+}
+
+.change-password {
+    width: 70%; 
+}
+
+.change-password h2 {
+    font-size: 2rem; 
+    margin-bottom: 20px; 
+}
+
+.form-group {
+    margin-bottom: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
+.custom-input {
+    width: 100%; 
+    max-width: 300px; 
+    padding: 10px; 
+    margin-bottom: 15px;
+}
+
+select.custom-input {
+    appearance: none; 
+    background: #f8f8f8; 
+    border: 1px solid #ccc; 
+}
+
+
+label {
+    font-weight: medium; 
+    margin-bottom: 5px; 
+    color: #333333; 
+}
+
+input[type="password"],
+input.custom-input {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 12px; 
+    padding-right: 40px; 
+    border: 1px solid #ddd;
+    border-radius: 5px; 
+    transition: border-color 0.2s;
+}
+
+.error {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px; /* Allows spacing under the input field */
+}
+
+input.valid {
+    border-color: green;
+}
+
+input.invalid {
+    border-color: red;
+}
+
+
+.password-wrapper {
+    position: relative; 
+    width: 100%;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 150px; 
+    top: 70%; 
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #333;
+    font-size: 1.2rem; 
+}
+
+.btn.custom-button {
+    width: 73%;
+    padding: 15px;
+    background-color: #ffd700; 
+    color: #333333; 
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn.custom-button:hover {
+    background-color: #f0c200; 
+}
+
+.btn.cancel-button {
+    width: 73%;
+    padding: 15px;
+    background-color: #e0e0e0; 
+    color: #333333; 
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px; 
+}
+
+.btn.cancel-button:hover {
+    background-color: #c0c0c0; 
+}
+
+.back-button {
+    margin-bottom: 20px;
+}
+
+
+#strengthBar {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 8px;
+    margin-top: 5px;
+}
+
+#bar {
+    height: 100%;
+    width: 0%;
+    background-color: red;
+    transition: width 0.3s;
+}
+
+#strengthText {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.service-history, .repair-status, .loyalty-status {
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #ffd700; 
+    color: #333333; 
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+
+p {
+    font-size: 16px;
+    color: #333333;
+}
+
+.user-info {
+    margin-bottom: 20px;
+}
+
+.user-info p {
+    font-size: 1.2rem;
+    color: #333333;
+}
+
+.col-md-9 {
+    padding-left: 60px; 
+    margin-bottom: 20px; 
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-dialog {
+    margin: 100px auto;
+}
+
+/* Progress Bar Custom Style */
+.progress {
+    background-color: #e9ecef;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: #ffd700;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.list-group-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.star-rating .star {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #ddd; /* Default star color */
+}
+
+.star-rating .star.selected, .star-rating .star:hover, .star-rating .star:hover ~ .star {
+    color: #FFD700; /* Highlight color for stars */
+}
+
+@media (max-width: 768px) {
+    .account-container {
+        flex-direction: column;
+    }
+
+    .sidebar, .change-password {
+        width: 100%;
+    }
+
+    .account-container, .sidebar, .change-password {
+        padding: 15px;
+        margin-bottom: 20px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        padding: 10px;
+    }
+
+    input[type="password"],
+    input.custom-input {
+        max-width: 100%; 
+    }
+
+    .btn.custom-button,
+    .btn.cancel-button {
+        width: 100%; 
+    }
+}
